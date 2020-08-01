@@ -1,11 +1,27 @@
-import React, {Component} from 'react';
+import React from 'react';
+import "./Heroes.css";
 
-class Heroes extends Component {
-  render(){
-  return this.props.heroes.map((hero)=>(<h1>{hero.name}</h1>))
-   
+function Heroes({ heroes }) {
+
+  return (
     
-  }
+    <div className="Conteiner">
+        {heroes.map((hero)=>(
+        <div className="Card"> 
+          <div className="Card-header">
+            <img className="Hero-img" src={hero.image.url}></img>
+          </div>
+          <div>
+            <h5 className="Card-text" key={hero.id}>
+                  {hero.name}
+            </h5>
+          </div>
+        </div>     
+      )
+    )}
+    </div>
+  )
+      
 }
 
 export default Heroes;

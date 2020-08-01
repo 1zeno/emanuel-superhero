@@ -1,52 +1,60 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Heroes from "./components/Heroes.js";
 import axios from "axios";
 import api_hero from "./token.json";
 
-class App extends React.Component {
+function App(){
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      heroes : "herozao",
-      status : false,
-      error : false,
-      error_msg : "",
-    };
-  }
+  const [heroes, setHeroes] = useState("herozao");
+  const [status, setStatus] = useState(false);
+  const [error, setError] = useState(false);
+  const [error_msg, setError_msg] = useState("deu erro");
+  const [load, setLoad] = useState(false);
   
-  componentDidMount(){
+  useEffect(() => {
     const url = api_hero.base_url + api_hero.token;
-    axios.get(url+"/search/batman").then( ({ data }) =>{this.setState({heroes : data.results, status : true})}).catch( (error) => this.setState({error : true, error_msg: error}))
-  }
-  
-
-  render(){
+    axios.get(url+"/search/batman")
+    .then( ({ data }) =>{
+      setHeroes(data.results);
+      setStatus(true);
+      console.log(data.results);
+      setLoad(true);
+    })
+    .catch( (error) => {
+      setError(true); 
+      setError_msg(error);
+      setStatus(true)
+    }); 
+  },[])
     
-    if(this.state.error){
+  if(!load){
+    return (
+      <div className="App">
+        <h1>carregando...</h1>
+      </div>
+    );
+  }else{
+    if(error){
       return (
         <div className="App">
           <h1>deu erro</h1>
         </div>
       );
+    }else{
+      if(status){
+        return (
+          <div className="App">
+            <Heroes heroes = {heroes} load = {load}/>
+          </div>
+        );
+      }
+
     }
 
-    if(this.state.status && !this.state.error){
-    console.log(this.state.heroes);
-    return (
-      <div className="App">
-        <Heroes heroes = {this.state.heroes}/>
-      </div>
-    );
-    }else{
-      console.log(this.state.heroes);
-      return (
-        <div className="App">
-        </div>
-      );
-    }
-  }
+  } 
+  
 }
 
 export default App;
+

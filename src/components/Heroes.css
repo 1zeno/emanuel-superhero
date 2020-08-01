@@ -1,0 +1,34 @@
+
+.Conteiner{
+    padding: 5em;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+.Hero-img {
+    width:100%;
+    height:100%;
+    border-radius:10px 10px 0px 0px;
+}
+ 
+.Card{
+
+   width:100%;
+   height:100%;
+   max-width: 200px;
+   background-color:#fefcf5bd;
+   box-shadow: 5px 5px 5px 5px #14130b4b;
+   border-radius:10px 10px 10px 10px ;
+   margin-right: 1em;
+   margin-left: 1em;
+}
+ 
+.Card-text{
+   display: flex;
+   justify-content: center;
+   color: #030101;
+   
+}
