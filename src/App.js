@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Heroes from "./components/Heroes.js";
+import Pagination from "./components/Pagination.js";
 import axios from "axios";
 import api_hero from "./token.json";
 
@@ -11,10 +12,12 @@ function App(){
   const [error, setError] = useState(false);
   const [error_msg, setError_msg] = useState("deu erro");
   const [load, setLoad] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
   
   useEffect(() => {
     const url = api_hero.base_url + api_hero.token;
-    axios.get(url+"/search/batman")
+    axios.get(url+"/search/b")
     .then( ({ data }) =>{
       setHeroes(data.results);
       setStatus(true);
@@ -27,6 +30,14 @@ function App(){
       setStatus(true)
     }); 
   },[])
+
+  //Pagination
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = heroes.slice(indexOfFirstPost, indexOfLastPost);
+
+  //Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
     
   if(!load){
     return (
@@ -45,7 +56,8 @@ function App(){
       if(status){
         return (
           <div className="App">
-            <Heroes heroes = {heroes} load = {load}/>
+            <Heroes heroes = {currentPosts} />
+            <Pagination postsPerPage = {postsPerPage} totalPosts={heroes.length} paginate = {paginate} />
           </div>
         );
       }

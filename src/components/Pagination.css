@@ -1,0 +1,14 @@
+
+.Pagination{
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+    border: solid blue;
+    width:auto;
+}
+
+.Page-item{
+    margin-left: 1em;
+    
+}
