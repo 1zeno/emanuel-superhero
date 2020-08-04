@@ -1,8 +1,34 @@
 .App {
   text-align: center;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 5em;
+  margin-right: 5em;
+  justify-content: center;
+  background-color: #8873B8;
+  box-shadow: 5px 5px 5px 5px #14130b4b;
+  border-radius:10px 10px 10px 10px ;
+  
 
 }
 
+.App-Load{
+  text-align: center;
+}
+
+.App-title{
+  color:white;
+}
+
+@media (min-width: 1200px) {
+  .App{
+    margin-left: 15em;
+    margin-right: 15em;
+  }
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

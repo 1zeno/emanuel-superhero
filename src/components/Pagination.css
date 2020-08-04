@@ -1,14 +1,36 @@
 
 .Pagination{
     display: flex;
+    flex-wrap: wrap;
     padding-left: 0;
     list-style: none;
-    border-radius: .25rem;
-    border: solid blue;
     width:auto;
 }
 
 .Page-item{
-    margin-left: 1em;
+    margin-left: 0.25em;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em ;
+    margin-right: 0.25em;
     
+}
+
+.Text-item{
+    color: black;
+}
+
+.Button-item{
+    border: 0;
+    border-radius: 5px;
+    background-color: dodgerblue;
+    padding: 1.5em 3em;
+    color: #fff;
+    text-transform: uppercase;
+    box-shadow: 0 2px 3px rgba(0,0,0,.3);
+    text-align: center;
+    width:60px;
+    height: auto;
+    max-height: 10px;
+    text-align: center;
+    align-items: center;
 }
