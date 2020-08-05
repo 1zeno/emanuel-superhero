@@ -5,6 +5,31 @@
   }
 
 
+/* Heroes info*/
+.Info-hero{
+   align-items: center;
+   justify-content: center;
+   display:none;
+}
+
+.Info-str{
+   color:rgb(190, 69, 32);
+   
+}
+
+.Info-int{
+ color:rgb(43, 33, 190);
+ 
+ }
+
+ .Info-power{
+    color:rgb(138, 67, 196);
+    
+ }
+ .Info-speed{
+    color:rgb(55, 124, 38);
+    
+ }
 /*Tela menor */
 @media (min-width: 350px) {
 
@@ -109,11 +134,15 @@
       max-height: 200px;
       max-width: 160px;
       border-radius:10px 10px 0px 0px;
+      
   }
-  
+
   .Card-header{
-     height: 200px;
-     width: 160px;
+      height: 200px;
+      width: 160px;
+      align-items: center;
+      display:flex;
+      justify-content: center;
   }
   
   .Card{

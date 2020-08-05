@@ -40,7 +40,7 @@ function App(){
 
   //Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
+  
   //Load spinner
   if(!load){
     return (
