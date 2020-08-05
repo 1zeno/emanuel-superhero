@@ -4,32 +4,35 @@ import "./Heroes.css";
 
 
 function Heroes({ heroes }) {
-  console.log(heroes)
-  let mudou = false;
-  const change = (id) =>{
-    if(!mudou){
+
+  let infoCard = false;
+
+  //Função para exibição das informações dos Cards
+  const changeCard = (id) =>{
+    if(!infoCard){
 
     document.getElementById("image"+id).style.display = "none";
     document.getElementById("text"+id).style.display = "none";
     document.getElementById("info"+id).style.display = "inline";
-    mudou = true;
+    infoCard = true;
     }else{
       document.getElementById("image"+id).style.display = "inline";
       document.getElementById("text"+id).style.display = "inline";
 
       document.getElementById("info"+id).style.display = "none";
-      mudou = false;
+      infoCard = false;
     }
   }
+
   return (
     
     <div className="Conteiner">
-      
       <div className="Row">
           {heroes.map((hero, id)=>(
-          <div className="Card" onClick={()=>{change(id)}}> 
+          <div className="Card" onClick={()=>{changeCard(id)}}> 
             <div className="Card-header">
-              <ReactImageFallback id ={"image"+id}
+              <ReactImageFallback 
+                  id ={"image"+id}
                   src={hero.image.url}
                   key={id}
                   fallbackImage="imagenotfound.png"

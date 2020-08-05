@@ -16,7 +16,7 @@ function App(){
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(20);
   
-  //Api request
+  //Api request que retorna os herois
   useEffect(() => {
     const url = api_hero.base_url + api_hero.token;
     axios.get(url+"/search/b")
@@ -34,11 +34,13 @@ function App(){
   },[])
 
   //Pagination
+  //definir a quantidade de páginas
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = heroes.slice(indexOfFirstPost, indexOfLastPost);
 
   //Change page
+  //função para definir a página atual
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   
   //Load spinner
@@ -57,6 +59,7 @@ function App(){
     );
   }else{
     //Error page
+    // caso ocorra erro na requisição da api
     if(error){
       return (
           <h2>Ocorreu um erro inesperado. Por favor, tente novamente mais tarde.</h2> 
