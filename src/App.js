@@ -23,7 +23,6 @@ function App(){
     .then( ({ data }) =>{
       setHeroes(data.results);
       setStatus(true);
-      console.log(data.results);
       setLoad(true);
     })
     .catch( (error) => {

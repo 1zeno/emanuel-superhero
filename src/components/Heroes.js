@@ -39,7 +39,6 @@ function Heroes({ heroes }) {
                   alt="cool image should be here"
                   className="Card-img" 
               />
-              {console.log("aqui "+hero)}
             <div className="Info-hero" id={"info"+id}>
            
               <h4>{hero.name}</h4>
