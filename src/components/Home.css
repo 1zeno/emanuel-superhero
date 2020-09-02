@@ -1,0 +1,90 @@
+.Home {
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 5em;
+    margin-right: 5em;
+    justify-content: center;
+    background-color: #CF7693;
+    box-shadow: 5px 5px 5px 5px #14130b4b;
+    
+    
+  
+  }
+  
+  .Home-Load{
+    text-align: center;
+  }
+  
+  .Home-title{
+    color:black;
+  }
+  
+  @media (min-width: 1200px) {
+    .Home{
+      margin-left: 15em;
+      margin-right: 15em;
+    }
+  }
+  
+
+  .Home-header {
+    height: 100px;
+  }
+
+  .Content{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    margin-left: 1em;
+    margin-right: 1em;
+    padding-bottom:1em;
+    justify-content: center;
+    background-color: #8873B8;
+    box-shadow: 5px 5px 5px 5px #14130b4b;
+    border-radius:10px 10px 10px 10px ;
+  }
+
+  .Home-heroes{
+    flex-grow: 3;
+  }
+
+  .Home-pagination{
+    display:flex;
+    justify-content: center;
+    vertical-align: bottom;
+    flex-grow: 1;
+  }
+  
+  .Home-link {
+    color: #61dafb;
+  }
+  
+  @keyframes Home-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .Search-box{
+    align-self: flex-end;
+  }
+  .Search{
+    max-height: 30px;
+    align-self: center;
+    border: none;
+  }
+  .Search-button{
+    max-height: 30px;
+    align-self: center;
+  }
+  

@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactImageFallback from "react-image-fallback";
 import "./Heroes.css";
-
+import HeroInfo from "./HeroInfo.js";
+import  { useRoutes } from 'hookrouter';
 
 function Heroes({ heroes }) {
 
@@ -9,8 +10,9 @@ function Heroes({ heroes }) {
 
   //Função para exibição das informações dos Cards
   const changeCard = (id) =>{
+    /*
     if(!infoCard){
-
+      
     document.getElementById("image"+id).style.display = "none";
     document.getElementById("text"+id).style.display = "none";
     document.getElementById("info"+id).style.display = "inline";
@@ -22,6 +24,7 @@ function Heroes({ heroes }) {
       document.getElementById("info"+id).style.display = "none";
       infoCard = false;
     }
+    */
   }
 
   return (
@@ -53,6 +56,7 @@ function Heroes({ heroes }) {
                     {hero.name}
                     
               </h5>
+              <a href={"/info/"+hero.id}> oi</a>
             </div>
           </div>     
         )
