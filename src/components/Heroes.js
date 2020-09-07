@@ -2,7 +2,7 @@ import React from 'react';
 import ReactImageFallback from "react-image-fallback";
 import "./Heroes.css";
 import HeroInfo from "./HeroInfo.js";
-import  { useRoutes } from 'hookrouter';
+import  { useRoutes, setLinkProps } from 'hookrouter';
 
 function Heroes({ heroes }) {
 
@@ -25,6 +25,7 @@ function Heroes({ heroes }) {
       infoCard = false;
     }
     */
+
   }
 
   return (
@@ -32,16 +33,18 @@ function Heroes({ heroes }) {
     <div className="Conteiner">
       <div className="Row">
           {heroes.map((hero, id)=>(
-          <div className="Card" onClick={()=>{changeCard(id)}}> 
+          <div className="Card" onClick={()=>{changeCard(hero.id)}}> 
             <div className="Card-header">
-              <ReactImageFallback 
-                  id ={"image"+id}
-                  src={hero.image.url}
-                  key={id}
-                  fallbackImage="imagenotfound.png"
-                  alt="cool image should be here"
-                  className="Card-img" 
-              />
+              <a className ="Card-img" href={"/info/"+hero.id}>
+                <ReactImageFallback 
+                    id ={"image"+id}
+                    src={hero.image.url}
+                    key={id}
+                    fallbackImage="imagenotfound.png"
+                    alt="cool image should be here"
+                    className="Card-img" 
+                />
+              </a>
             <div className="Info-hero" id={"info"+id}>
            
               <h4>{hero.name}</h4>
@@ -56,7 +59,6 @@ function Heroes({ heroes }) {
                     {hero.name}
                     
               </h5>
-              <a href={"/info/"+hero.id}> oi</a>
             </div>
           </div>     
         )
